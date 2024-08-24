@@ -1,4 +1,4 @@
-# rocket_oauth2
+# rocket_oauth2 for rocket 0.6.0-dev (rev f50b604)
 
 ![maintenance: passive](https://img.shields.io/badge/maintenance-passive-orange)
 [![crates.io](https://img.shields.io/crates/v/rocket_oauth2)](https://crates.io/crates/rocket_oauth2)
