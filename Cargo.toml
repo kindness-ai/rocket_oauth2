@@ -21,8 +21,8 @@ hyper_rustls_adapter = ["http-body-util", "hyper", "hyper-rustls", "hyper-util"]
 async-trait = "0.1.30"
 base64 = "0.22"
 log = "0.4.4"
-rand = { version = "0.8", default-features = false, features = ["std"] }
-rocket = { git = "https://github.com/rwf2/Rocket.git", rev = "f50b604", features = ["secrets"] }
+rand = "0.9.0"
+rocket = { git = "https://github.com/rwf2/Rocket.git", rev = "28891e8072136f4641a33fb8c3f2aafce9d88d5b", features = ["secrets"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1.0"
 url = "2.0"

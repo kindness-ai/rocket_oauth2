@@ -168,12 +168,7 @@ const STATE_COOKIE_NAME: &str = "rocket_oauth2_state";
 // See RFC 6749 §10.12 for more details.
 fn generate_state(rng: &mut impl rand::RngCore) -> Result<String, Error> {
     let mut buf = [0; 16]; // 128 bits
-    rng.try_fill_bytes(&mut buf).map_err(|_| {
-        Error::new_from(
-            ErrorKind::Other,
-            String::from("Failed to generate random data"),
-        )
-    })?;
+    rng.fill_bytes(&mut buf);
     Ok(BASE64_URL_SAFE_NO_PAD.encode(&buf))
 }
 
@@ -691,7 +686,7 @@ impl<K: 'static> OAuth2<K> {
         scopes: &[&str],
         extras: &[(&str, &str)],
     ) -> Result<Redirect, Error> {
-        let state = generate_state(&mut rand::thread_rng())?;
+        let state = generate_state(&mut rand::rng())?;
         let uri = self
             .0
             .adapter
